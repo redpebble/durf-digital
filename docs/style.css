@@ -1,0 +1,77 @@
+:root {
+    --sheet-width: 1000px;
+    --sheet-height: 700px;
+    --sheet-border-padding: 39px;
+    --sheet-inner-padding: 13px;
+    --sheet-logo-width: calc(var(--sheet-width) * 0.13);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body, main, div {
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sheet {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: var(--sheet-width);
+    height: var(--sheet-height);
+    border: 1px solid black;
+    padding: var(--sheet-border-padding);
+}
+
+#sheet-header {
+    display: flex;
+    margin-bottom: var(--sheet-inner-padding);
+}
+
+#name-box {
+    flex: auto;
+    display: flex;
+    align-items: end;
+    border-bottom: 2px dotted #000;
+}
+
+#name-box > input {
+    border: none;
+}
+
+#name-box ~ img {
+    width: var(--sheet-logo-width);
+    margin-left: var(--sheet-inner-padding);
+}
+
+#sheet-body {
+    display: flex;
+    height: 100%;
+}
+
+#sheet-body > div {
+    border: 1px solid blue;
+}
+
+#stats {
+    flex: 1;
+}
+
+#inventory {
+    flex: 2;
+    margin: 0 var(--sheet-inner-padding);
+}
+
+#notes-and-spells {
+    flex: 1.3;
+}
