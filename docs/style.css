@@ -160,7 +160,7 @@ main {
     height: var(--sheet-height);
     padding: var(--sheet-border-padding);
     padding-top: 0;
-    box-shadow: 1px 1px 10px #0005;
+    box-shadow: 1px 1px 10px #0004;
 }
 
 #sheet-header {
