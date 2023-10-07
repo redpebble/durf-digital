@@ -55,94 +55,94 @@ body, main, div {
     color: #000;
     background-repeat: no-repeat;
     background-color: transparent;
-}
 
-.bevel.all {
-    background-image:
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(-45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(-225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)));
-
-    background-position:
-        top center,
-        top right,
-        center right,
-        bottom right,
-        bottom center,
-        bottom left,
-        center left,
-        top left;
-
-    background-size:
-        calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
-        var(--bevel-size) var(--bevel-size),
-        var(--bevel-border-width) calc(100% - var(--bevel-size) * 2),
-        var(--bevel-size) var(--bevel-size),
-        calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
-        var(--bevel-size) var(--bevel-size),
-        var(--bevel-border-width) calc(100% - var(--bevel-size) * 2),
-        var(--bevel-size) var(--bevel-size);
-}
-
-.bevel.top {
-    background-image:
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(-225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)));
-
-    background-position:
-        top center,
-        top right,
-        bottom right,
-        bottom center,
-        bottom left,
-        top left;
-
-    background-size:
-        calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
-        var(--bevel-size) var(--bevel-size),
-        var(--bevel-border-width) calc(100% - var(--bevel-size)),
-        100% var(--bevel-border-width),
-        var(--bevel-border-width) calc(100% - var(--bevel-size)),
-        var(--bevel-size) var(--bevel-size);
-}
-
-.bevel.bottom {
-    background-image:
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(-45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
-        linear-gradient(45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
-        linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color));
-
-    background-position:
-        top center,
-        top right,
-        bottom right,
-        bottom center,
-        bottom left,
-        top left;
-
-    background-size:
-        100% var(--bevel-border-width),
-        var(--bevel-border-width) calc(100% - var(--bevel-size)),
-        var(--bevel-size) var(--bevel-size),
-        calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
-        var(--bevel-size) var(--bevel-size),
-        var(--bevel-border-width) calc(100% - var(--bevel-size));
-}
-
-.bevel.small {
-    --bevel-size: var(--bevel-size-small);
+    &.all {
+        background-image:
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(-45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(-225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)));
+    
+        background-position:
+            top center,
+            top right,
+            center right,
+            bottom right,
+            bottom center,
+            bottom left,
+            center left,
+            top left;
+    
+        background-size:
+            calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
+            var(--bevel-size) var(--bevel-size),
+            var(--bevel-border-width) calc(100% - var(--bevel-size) * 2),
+            var(--bevel-size) var(--bevel-size),
+            calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
+            var(--bevel-size) var(--bevel-size),
+            var(--bevel-border-width) calc(100% - var(--bevel-size) * 2),
+            var(--bevel-size) var(--bevel-size);
+    }
+    
+    &.top {
+        background-image:
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(-225deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)));
+    
+        background-position:
+            top center,
+            top right,
+            bottom right,
+            bottom center,
+            bottom left,
+            top left;
+    
+        background-size:
+            calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
+            var(--bevel-size) var(--bevel-size),
+            var(--bevel-border-width) calc(100% - var(--bevel-size)),
+            100% var(--bevel-border-width),
+            var(--bevel-border-width) calc(100% - var(--bevel-size)),
+            var(--bevel-size) var(--bevel-size);
+    }
+    
+    &.bottom {
+        background-image:
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(-45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color)),
+            linear-gradient(45deg, transparent calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3), var(--bevel-border-color) calc(var(--bevel-size) * 2/3 + var(--bevel-border-width)), transparent calc(var(--bevel-size) * 2/3 + var(--bevel-border-width))),
+            linear-gradient(0, var(--bevel-border-color), var(--bevel-border-color));
+    
+        background-position:
+            top center,
+            top right,
+            bottom right,
+            bottom center,
+            bottom left,
+            top left;
+    
+        background-size:
+            100% var(--bevel-border-width),
+            var(--bevel-border-width) calc(100% - var(--bevel-size)),
+            var(--bevel-size) var(--bevel-size),
+            calc(100% - var(--bevel-size) * 2) var(--bevel-border-width),
+            var(--bevel-size) var(--bevel-size),
+            var(--bevel-border-width) calc(100% - var(--bevel-size));
+    }
+    
+    &.small {
+        --bevel-size: var(--bevel-size-small);
+    }    
 }
 
 main {
@@ -152,7 +152,7 @@ main {
     height: 100%;
 }
 
-#sheet {
+.sheet {
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -161,135 +161,135 @@ main {
     padding: var(--sheet-border-padding);
     padding-top: 0;
     box-shadow: 1px 1px 10px #0004;
-}
 
-#sheet-header {
-    display: flex;
-    margin-bottom: var(--sheet-inner-padding);
-}
+    .header {
+        display: flex;
+        margin-bottom: var(--sheet-inner-padding);
+    }
 
-#name-box {
-    flex: auto;
-    display: flex;
-    align-items: end;
-    border-bottom: var(--sheet-dotted-border);
-    padding-bottom: calc(var(--sheet-inner-padding) * 0.5);
-}
+    .name-box {
+        flex: auto;
+        display: flex;
+        align-items: end;
+        border-bottom: var(--sheet-dotted-border);
+        padding-bottom: calc(var(--sheet-inner-padding) * 0.5);
 
-#name-box > span {
-    font: var(--font-head-bold);
-    font-size: var(--sheet-head-font-size);
-}
+        & > span {
+            font: var(--font-head-bold);
+            font-size: var(--sheet-head-font-size);
+        }
 
-#name-box > input {
-    padding: 0;
-    margin-left: var(--sheet-inner-padding);
-    width: 100%;
-    position: relative;
-    top: 11px;
-    background: none;
-    border: none;
-    font: var(--font-hand);
-    font-size: calc(var(--sheet-head-font-size) * 1.7);
-    color: #444;
-    line-height: 20px;
-}
+        & > input {
+            padding: 0;
+            margin-left: var(--sheet-inner-padding);
+            width: 100%;
+            position: relative;
+            top: 11px;
+            background: none;
+            border: none;
+            font: var(--font-hand);
+            font-size: calc(var(--sheet-head-font-size) * 1.7);
+            color: #444;
+            line-height: 20px;
+        }
 
-#name-box > input:focus {
-    outline: none;
-}
+        & > input:focus {
+            outline: none;
+        }
 
-#name-box ~ img {
-    width: var(--sheet-logo-width);
-    margin-left: var(--sheet-inner-padding);
-    margin-top: var(--sheet-border-padding)
-}
+        & ~ img {
+            width: var(--sheet-logo-width);
+            margin-left: var(--sheet-inner-padding);
+            margin-top: var(--sheet-border-padding)
+        }    
+    }
+    
+    .body {
+        display: flex;
+        gap: var(--sheet-inner-padding);
+        height: 100%;
 
-#sheet-body {
-    display: flex;
-    gap: var(--sheet-inner-padding);
-    height: 100%;
-}
+        .stats {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--sheet-inner-padding);
 
-#stats {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sheet-inner-padding);
-}
+            .attributes {
+                flex: 2.5;
+            }
 
-#attributes {
-    flex: 2.5;
-}
+            .health {
+                flex: 1.5;
+            }
 
-#health {
-    flex: 1.5;
-}
+            .armor {
+                flex: 1.5;
+            }
 
-#armor {
-    flex: 1.5;
-}
+            .xp {
+                flex: 1;
+            }    
+        }
 
-#xp {
-    flex: 1;
-}
+        .xp-info {
+            text-align: center;
+            font: var(--font-head-bold);
+            letter-spacing: 0.5px;
+            color: var(--font-color-light);
+        }
 
-#xp-info {
-    text-align: center;
-    font: var(--font-head-bold);
-    letter-spacing: 0.5px;
-    color: var(--font-color-light);
-}
+        .inventory {
+            flex: 2;
+            display: grid;
+            grid-template-rows: repeat(10, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-flow: column;
 
-#inventory {
-    flex: 2;
-    display: grid;
-    grid-template-rows: repeat(10, 1fr);
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-flow: column;
-}
+            & > div {
+                border: var(--sheet-dotted-border);
+                border-right: none;
+                border-top: none;
+                padding: 0px;
+            }
 
-#inventory > div {
-    border: var(--sheet-dotted-border);
-    border-right: none;
-    border-top: none;
-    padding: 0px;
-}
+            & > div > span {
+                position: relative;
+                top: calc(50% - 12px);
+                left: 12px;
+                color: var(--font-color-light);
+                font: var(--font-head-light);
+                font-size: 22px;
+                letter-spacing: -2px;
+            }
 
-#inventory > div > span {
-    position: relative;
-    top: calc(50% - 12px);
-    left: 12px;
-    color: var(--font-color-light);
-    font: var(--font-head-light);
-    font-size: 22px;
-    letter-spacing: -2px;
-}
+            & > div:last-child {
+                grid-row: 9 / 11;
+            }
 
-#inventory > div:last-child {
-    grid-row: 9 / 11;
-}
+            & > div:nth-child(-n + 10) {
+                border-left: none;
+            }
 
-#inventory > div:nth-child(-n + 10) {
-    border-left: none;
-}
+            & > div:nth-child(10),
+            & > div:nth-child(19) {
+                border-bottom: none;
+            }            
+        }
 
-#inventory > div:nth-child(10),
-#inventory > div:nth-child(19) {
-    border-bottom: none;
-}
+        .notes-and-spells {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+            gap: var(--sheet-inner-padding);
 
-#notes-and-spells {
-    flex: 1.3;
-    display: flex;
-    flex-direction: column;
-    gap: var(--sheet-inner-padding);
-}
+            .notes {
+                flex: 1.5;
+            }
 
-#notes {
-    flex: 1.5;
-}
-
-#spells {
-    flex: 1;
+            .spells {
+                flex: 1;
+            }
+        }
+    }
 }
