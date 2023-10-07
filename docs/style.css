@@ -45,10 +45,10 @@ body {
     padding: 0;
     width: 100vw;
     height: 100vh;
-}
 
-body, main, div {
-    box-sizing: border-box;
+    &, main, div {
+        box-sizing: border-box;
+    }
 }
 
 .bevel {
@@ -165,43 +165,43 @@ main {
     .header {
         display: flex;
         margin-bottom: var(--sheet-inner-padding);
-    }
 
-    .name-box {
-        flex: auto;
-        display: flex;
-        align-items: end;
-        border-bottom: var(--sheet-dotted-border);
-        padding-bottom: calc(var(--sheet-inner-padding) * 0.5);
-
-        & > span {
-            font: var(--font-head-bold);
-            font-size: var(--sheet-head-font-size);
+        & > div {
+            flex: auto;
+            display: flex;
+            align-items: end;
+            border-bottom: var(--sheet-dotted-border);
+            padding-bottom: calc(var(--sheet-inner-padding) * 0.5);
+    
+            & > span {
+                font: var(--font-head-bold);
+                font-size: var(--sheet-head-font-size);
+            }
+    
+            & > input {
+                padding: 0;
+                margin-left: var(--sheet-inner-padding);
+                width: 100%;
+                position: relative;
+                top: 11px;
+                background: none;
+                border: none;
+                font: var(--font-hand);
+                font-size: calc(var(--sheet-head-font-size) * 1.7);
+                color: #444;
+                line-height: 20px;
+            }
+    
+            & > input:focus {
+                outline: none;
+            }
+    
+            & ~ img {
+                width: var(--sheet-logo-width);
+                margin-left: var(--sheet-inner-padding);
+                margin-top: var(--sheet-border-padding)
+            }
         }
-
-        & > input {
-            padding: 0;
-            margin-left: var(--sheet-inner-padding);
-            width: 100%;
-            position: relative;
-            top: 11px;
-            background: none;
-            border: none;
-            font: var(--font-hand);
-            font-size: calc(var(--sheet-head-font-size) * 1.7);
-            color: #444;
-            line-height: 20px;
-        }
-
-        & > input:focus {
-            outline: none;
-        }
-
-        & ~ img {
-            width: var(--sheet-logo-width);
-            margin-left: var(--sheet-inner-padding);
-            margin-top: var(--sheet-border-padding)
-        }    
     }
     
     .body {
@@ -229,14 +229,14 @@ main {
 
             .xp {
                 flex: 1;
-            }    
-        }
+            }
 
-        .xp-info {
-            text-align: center;
-            font: var(--font-head-bold);
-            letter-spacing: 0.5px;
-            color: var(--font-color-light);
+            .xp-info {
+                text-align: center;
+                font: var(--font-head-bold);
+                letter-spacing: 0.5px;
+                color: var(--font-color-light);
+            }
         }
 
         .inventory {
