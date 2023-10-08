@@ -13,7 +13,8 @@
     --font-title: 'No Continue', sans-serif;
     --font-hand: 'Shadows Into Light', cursive;
 
-    --font-color-light: #ccc;
+    --color-light-gray: #ccc;
+    --color-pencil-gray: #555;
 
     --bevel-size: 13;
     --bevel-size-small: 5;
@@ -38,6 +39,7 @@ main {
 .beveled {
     --slice: calc(var(--bevel-size) + 1);
     --width: calc(var(--slice) * 1px);
+    --bevel-px: calc(var(--bevel-size) * 1px);
 
     & > div {
         position: relative;
@@ -58,13 +60,38 @@ main {
 
     .content {
         top: -100%;
-        padding: 1px;
+        padding: 2px;
+    }
+
+    &.all .content {
+        clip-path: polygon(
+            0 var(--bevel-px), var(--bevel-px) 0,
+            calc(100% - var(--bevel-px)) 0, 100% var(--bevel-px),
+            100% calc(100% - var(--bevel-px)), calc(100% - var(--bevel-px)) 100%,
+            var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)));
+    }
+    &.top .content {
+        clip-path: polygon(
+            0 var(--bevel-px), var(--bevel-px) 0,
+            calc(100% - var(--bevel-px)) 0, 100% var(--bevel-px),
+            100% 100%,
+            0 100%);
+    }
+    &.bottom .content {
+        clip-path: polygon(
+            0 0,
+            100% 0,
+            100% calc(100% - var(--bevel-px)), calc(100% - var(--bevel-px)) 100%,
+            var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)));
+    }
+    &.all.small .content {
+        --bevel-px: calc(var(--bevel-size-small) * 1px);
     }
 }
 
 span[contenteditable] {
     font-family: var(--font-hand);
-    color: #555;
+    color: var(--color-pencil-gray);
 
     &:focus {
         outline: none;
@@ -133,9 +160,17 @@ span[contenteditable] {
             flex-direction: column;
             gap: var(--inner-padding);
 
-            .attributes {
-                flex: 2.2;
+            & span[contenteditable] {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;    
+                font-size: 45px;
+                line-height: 0;
+            }
 
+            .attributes,
+            .health {
                 .content {
                     display: flex;
                     height: 100%;
@@ -143,22 +178,16 @@ span[contenteditable] {
                     & > div {
                         flex: 1;
                         display: flex;
-                        flex-direction: column;
+                    }
+
+                    .labels {
+                        background: #000;
 
                         & > span {
                             flex: 1;
                             display: flex;
                             justify-content: center;
                             align-items: center;
-                        }
-                    }
-
-                    .labels {
-                        --bevel-px: calc(var(--bevel-size) * 1px);
-                        background: #000;
-                        clip-path: polygon(var(--bevel-px) 0, 100% 0, 100% 100%, var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)), 0 var(--bevel-px));
-
-                        & > span {
                             color: #fff;
                             font-family: var(--font-head);
                             font-weight: bold;
@@ -166,29 +195,98 @@ span[contenteditable] {
                             letter-spacing: 1px;
                         }
                     }
+                }
+            }
 
-                    .fields {
-                        & > span {
-                            border-top: var(--dotted-border);
-                            font-size: 45px;
-                            line-height: 0;
+            .attributes {
+                flex: 2.2;
 
-                            &:first-child { border: none; }
-                        }
+                .content {
+                    & > div {
+                        flex-direction: column;
+                    }
+
+                    .fields > span {
+                        &:first-child { border-bottom: var(--dotted-border); }
+                        &:last-child { border-top: var(--dotted-border); }
                     }
                 }
             }
 
             .health {
                 flex: 1.5;
+
+                .content {
+                    flex-direction: column;
+
+                    .labels > span:last-child {
+                        font-size: 26px;
+                        letter-spacing: 0;
+                    }
+
+                    .fields > span:first-child { border-right: var(--dotted-border); }
+                }
             }
 
             .armor {
                 flex: 1.5;
+
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+
+                    .label,
+                    .sub-label {
+                        display: flex;
+                        justify-content: center;
+                        font-family: var(--font-head);
+                        font-weight: bold;
+                    }
+
+                    .label {
+                        font-size: 26px;
+                        letter-spacing: 1px;
+                    }
+
+                    .sub-label {
+                        font-size: 14px;
+                        padding: 5px 0 0;
+                    }
+
+                    .fields {
+                        flex: 1;
+                        display: flex;
+
+                        & > div {
+                            flex: 1;
+                            display: flex;
+                            flex-direction: column;
+                        }
+
+                        & > div:first-child {
+                            border-right: var(--dotted-border);
+                        }
+                    }
+                }
             }
 
             .xp {
                 flex: 1;
+
+                .content {
+                    display: flex;
+
+                    .label {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-family: var(--font-head);
+                        font-weight: bold;
+                        font-size: 26px;
+                        padding-left: 16px;
+                    }
+                }
             }
 
             .xp-info {
@@ -196,7 +294,7 @@ span[contenteditable] {
                 font-family: var(--font-head);
                 font-weight: bold;
                 letter-spacing: 0.5px;
-                color: var(--font-color-light);
+                color: var(--color-light-gray);
             }
         }
 
@@ -219,7 +317,7 @@ span[contenteditable] {
                     position: relative;
                     top: calc(50% - 12px);
                     left: 14px;
-                    color: var(--font-color-light);
+                    color: var(--color-light-gray);
                     font-family: var(--font-head);
                     font-weight: lighter;
                     font-size: 23px;
