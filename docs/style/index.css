@@ -28,10 +28,8 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
+    background-color: rgba(42, 42, 46, 1);
 
     &, main, div {
         box-sizing: border-box;
@@ -42,7 +40,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    margin-top: 42px;
 }
 
 .beveled {
@@ -75,12 +73,12 @@ main {
 }
 
 #sheet {
-    --width: 1000px;
-    --height: 700px;
-    --border-padding: 39px;
+    --width: 1032px;
+    --height: 727px;
+    --border-padding: 42px;
     --inner-padding: 13px;
-    --logo-width: calc(var(--width) * 0.13);
-    --head-font-size: 25px;
+    --logo-height: calc(var(--height) * 0.065);
+    --head-font-size: 24px;
     --dotted-border: 2px dotted #666;
 
     display: flex;
@@ -90,6 +88,7 @@ main {
     height: var(--height);
     padding: var(--border-padding);
     padding-top: 0;
+    background-color: #fff;
     box-shadow: 1px 1px 10px #0004;
 
     .header {
@@ -127,7 +126,7 @@ main {
             }
     
             & ~ img {
-                width: var(--logo-width);
+                height: var(--logo-height);
                 margin-left: var(--inner-padding);
                 margin-top: var(--border-padding)
             }
@@ -146,7 +145,7 @@ main {
             gap: var(--inner-padding);
 
             .attributes {
-                flex: 2.5;
+                flex: 2.2;
             }
 
             .health {
@@ -182,16 +181,15 @@ main {
                     border: var(--dotted-border);
                     border-right: none;
                     border-top: none;
-                    padding: 0px;
                 }
     
                 & > div > span {
                     position: relative;
                     top: calc(50% - 12px);
-                    left: 12px;
+                    left: 14px;
                     color: var(--font-color-light);
                     font: var(--font-head-light);
-                    font-size: 22px;
+                    font-size: 23px;
                     letter-spacing: -2px;
                 }
     
@@ -217,7 +215,7 @@ main {
             gap: var(--inner-padding);
 
             .notes {
-                flex: 1.5;
+                flex: 1.4;
             }
 
             .spells {
