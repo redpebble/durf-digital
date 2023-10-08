@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto+Slab:wght@200;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto+Slab:wght@200;400;700&family=Shadows+Into+Light&display=swap');
 @font-face {
     font-family: 'No Continue';
     src: url('../font/gomarice_no_continue-webfont.woff2') format('woff2'),
@@ -6,25 +6,17 @@
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: 'Cute Handwriting';
-    src: url('../font/cutehandwriting-webfont.woff2') format('woff2'),
-         url('../font/cutehandwriting-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 :root {
-    --font-head-light: 300 1em 'Roboto Condensed', sans-serif;
-    --font-head-regular: 400 1em 'Roboto Condensed', sans-serif;
-    --font-head-bold: 700 1em 'Roboto Condensed', sans-serif;
-    --font-body-light: 200 1em 'Roboto Slab', sans-serif;
-    --font-body-regular: 400 1em 'Roboto Slab', sans-serif;
-    --font-body-bold: 700 1em 'Roboto Slab', sans-serif;
-    --font-title: normal 1em 'No Continue', sans-serif;
-    --font-hand: normal 1em 'Cute Handwriting', 'Comic Sans';
+    --font-head: 'Roboto Condensed', sans-serif;
+    --font-body: 'Roboto Slab', sans-serif;
+    --font-title: 'No Continue', sans-serif;
+    --font-hand: 'Shadows Into Light', cursive;
 
     --font-color-light: #ccc;
+
+    --bevel-size: 13;
+    --bevel-size-small: 5;
 }
 
 body {
@@ -44,12 +36,10 @@ main {
 }
 
 .beveled {
-    --size: 13;
-    --size-small: 5;
-    --slice: calc(var(--size) + 1);
+    --slice: calc(var(--bevel-size) + 1);
     --width: calc(var(--slice) * 1px);
 
-    div {
+    & > div {
         position: relative;
         height: 100%;
     }
@@ -61,7 +51,7 @@ main {
     &.bottom .border { border-image: url('../img/bevel-bottom.png') var(--slice); }
 
     &.all.small .border {
-        --slice: calc(var(--size-small) + 1);
+        --slice: calc(var(--bevel-size-small) + 1);
         --width: calc(var(--slice) * 1px);
         border-image: url('../img/bevel-all-small.png') var(--slice);
     }
@@ -69,6 +59,15 @@ main {
     .content {
         top: -100%;
         padding: 1px;
+    }
+}
+
+span[contenteditable] {
+    font-family: var(--font-hand);
+    color: #555;
+
+    &:focus {
+        outline: none;
     }
 }
 
@@ -102,27 +101,17 @@ main {
             border-bottom: var(--dotted-border);
             padding-bottom: calc(var(--inner-padding) * 0.5);
     
-            & > span {
-                font: var(--font-head-bold);
+            & > .label {
+                font-family: var(--font-head);
+                font-weight: bold;
                 font-size: var(--head-font-size);
             }
     
-            & > input {
-                padding: 0;
+            & > .field {
                 margin-left: var(--inner-padding);
                 width: 100%;
-                position: relative;
-                top: 11px;
-                background: none;
-                border: none;
-                font: var(--font-hand);
                 font-size: calc(var(--head-font-size) * 1.7);
-                color: #444;
-                line-height: 20px;
-            }
-    
-            & > input:focus {
-                outline: none;
+                line-height: 40px;
             }
     
             & ~ img {
@@ -146,6 +135,48 @@ main {
 
             .attributes {
                 flex: 2.2;
+
+                .content {
+                    display: flex;
+                    height: 100%;
+
+                    & > div {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+
+                        & > span {
+                            flex: 1;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+
+                    .labels {
+                        --bevel-px: calc(var(--bevel-size) * 1px);
+                        background: #000;
+                        clip-path: polygon(var(--bevel-px) 0, 100% 0, 100% 100%, var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)), 0 var(--bevel-px));
+
+                        & > span {
+                            color: #fff;
+                            font-family: var(--font-head);
+                            font-weight: bold;
+                            font-size: 35px;
+                            letter-spacing: 1px;
+                        }
+                    }
+
+                    .fields {
+                        & > span {
+                            border-top: var(--dotted-border);
+                            font-size: 45px;
+                            line-height: 0;
+
+                            &:first-child { border: none; }
+                        }
+                    }
+                }
             }
 
             .health {
@@ -162,7 +193,8 @@ main {
 
             .xp-info {
                 text-align: center;
-                font: var(--font-head-bold);
+                font-family: var(--font-head);
+                font-weight: bold;
                 letter-spacing: 0.5px;
                 color: var(--font-color-light);
             }
@@ -188,7 +220,8 @@ main {
                     top: calc(50% - 12px);
                     left: 14px;
                     color: var(--font-color-light);
-                    font: var(--font-head-light);
+                    font-family: var(--font-head);
+                    font-weight: lighter;
                     font-size: 23px;
                     letter-spacing: -2px;
                 }
