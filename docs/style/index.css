@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto+Slab:wght@200;400;700&display=swap');
 @font-face {
     font-family: 'No Continue';
-    src: url('./font/gomarice_no_continue-webfont.woff2') format('woff2'),
-         url('./font/gomarice_no_continue-webfont.woff') format('woff');
+    src: url('../font/gomarice_no_continue-webfont.woff2') format('woff2'),
+         url('../font/gomarice_no_continue-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: 'Cute Handwriting';
-    src: url('./font/cutehandwriting-webfont.woff2') format('woff2'),
-         url('./font/cutehandwriting-webfont.woff') format('woff');
+    src: url('../font/cutehandwriting-webfont.woff2') format('woff2'),
+         url('../font/cutehandwriting-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -30,8 +30,8 @@
 body {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 
     &, main, div {
         box-sizing: border-box;
@@ -58,14 +58,14 @@ main {
 
     .border { border: var(--width) solid; }
 
-    &.all .border    { border-image: url('img/bevel-all.png') var(--slice); }
-    &.top .border    { border-image: url('img/bevel-top.png') var(--slice); }
-    &.bottom .border { border-image: url('img/bevel-bottom.png') var(--slice); }
+    &.all .border    { border-image: url('../img/bevel-all.png') var(--slice); }
+    &.top .border    { border-image: url('../img/bevel-top.png') var(--slice); }
+    &.bottom .border { border-image: url('../img/bevel-bottom.png') var(--slice); }
 
     &.all.small .border {
         --slice: calc(var(--size-small) + 1);
         --width: calc(var(--slice) * 1px);
-        border-image: url('img/bevel-all-small.png') var(--slice);
+        border-image: url('../img/bevel-all-small.png') var(--slice);
     }
 
     .content {
