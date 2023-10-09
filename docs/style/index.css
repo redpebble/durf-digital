@@ -36,144 +36,6 @@ main {
     margin-top: 42px;
 }
 
-.beveled {
-    --slice: calc(var(--bevel-size) + 1);
-    --width: calc(var(--slice) * 1px);
-    --bevel-px: calc(var(--bevel-size) * 1px + 2.5px);
-
-    & > div {
-        position: relative;
-        height: 100%;
-    }
-
-    & > .border { border: var(--width) solid; }
-
-    &.all .border    { border-image: url('../img/bevel-all.png') var(--slice); }
-    &.top .border    { border-image: url('../img/bevel-top.png') var(--slice); }
-    &.bottom .border { border-image: url('../img/bevel-bottom.png') var(--slice); }
-
-    &.all.small .border {
-        --slice: calc(var(--bevel-size-small) + 1);
-        --width: calc(var(--slice) * 1px);
-        border-image: url('../img/bevel-all-small.png') var(--slice);
-    }
-
-    & > .content {
-        top: -100%;
-        padding: 1.5px;
-    }
-
-    &.all .content {
-        clip-path: polygon(
-            0 var(--bevel-px), var(--bevel-px) 0,
-            calc(100% - var(--bevel-px)) 0, 100% var(--bevel-px),
-            100% calc(100% - var(--bevel-px)), calc(100% - var(--bevel-px)) 100%,
-            var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)));
-    }
-    &.top .content {
-        clip-path: polygon(
-            0 var(--bevel-px), var(--bevel-px) 0,
-            calc(100% - var(--bevel-px)) 0, 100% var(--bevel-px),
-            100% 100%,
-            0 100%);
-    }
-    &.bottom .content {
-        clip-path: polygon(
-            0 0,
-            100% 0,
-            100% calc(100% - var(--bevel-px)), calc(100% - var(--bevel-px)) 100%,
-            var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)));
-    }
-    &.all.small .content {
-        --bevel-px: calc(var(--bevel-size-small) * 1px);
-    }
-}
-
-.no-select {
-    user-select: none;
-}
-
-#nojs-alert {
-
-    & > input {
-        position: absolute;
-        visibility: hidden;
-        pointer-events: none;
-
-        &:checked ~ .content,
-        &:checked ~ .screen {
-            display: none;
-        }
-    }
-
-    & > .screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #0003;
-    }
-
-    & > .content {
-        --width: 500px;
-
-        display: flex;
-        align-items: center;
-
-        position: fixed;
-        top: 10vh;
-        left: calc(50vw - var(--width) / 2);
-        width: var(--width);
-
-        background: #eee;
-        padding: 20px 30px 50px;
-        border-radius: 20px;
-        filter: drop-shadow(1px 1px 5px #0008);
-
-        font-family: var(--font-body);
-
-        user-select: none;
-
-        & > .icon {
-            font-size: 40px;
-            margin-right: 20px;
-        }
-
-        & > div {
-            & > h2 {
-                font-family: var(--font-head);
-                margin: 5px;
-            }
-
-            & > p { margin: 5px; }
-        }
-
-        & > label {
-            display: block;
-            pointer-events: all;
-            cursor: pointer;
-            position: absolute;
-            bottom: 20px;
-            right: 40px;
-            border: 1px solid #0008;
-            border-bottom-width: 2px;
-            padding: 3px 6px;
-            border-radius: 5px;
-            background: #fff;
-
-            &:hover {
-                background: #ddd;
-
-                &:active {
-                    bottom: 19px;
-                    border-bottom-width: 1px;
-                }
-            }
-        }
-    }
-}
-
 #sheet {
     --width: 1032px;
     --height: 727px;
@@ -272,6 +134,59 @@ main {
         display: flex;
         gap: var(--inner-padding);
         height: calc(var(--height) - ((2 * var(--border-padding)) + var(--logo-height) + var(--inner-padding)));
+
+        & .beveled {
+            --slice: calc(var(--bevel-size) + 1);
+            --width: calc(var(--slice) * 1px);
+            --bevel-px: calc(var(--bevel-size) * 1px + 2.5px);
+        
+            & > div {
+                position: relative;
+                height: 100%;
+            }
+        
+            & > .border { border: var(--width) solid; }
+        
+            &.all .border    { border-image: url('../img/bevel-all.png') var(--slice); }
+            &.top .border    { border-image: url('../img/bevel-top.png') var(--slice); }
+            &.bottom .border { border-image: url('../img/bevel-bottom.png') var(--slice); }
+        
+            &.all.small .border {
+                --slice: calc(var(--bevel-size-small) + 1);
+                --width: calc(var(--slice) * 1px);
+                border-image: url('../img/bevel-all-small.png') var(--slice);
+            }
+        
+            & > .content {
+                top: -100%;
+                padding: 1.5px;
+            }
+        
+            &.all .content {
+                clip-path: polygon(
+                    0 var(--bevel-px), var(--bevel-px) 0,
+                    calc(100% - var(--bevel-px)) 0, 100% var(--bevel-px),
+                    100% calc(100% - var(--bevel-px)), calc(100% - var(--bevel-px)) 100%,
+                    var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)));
+            }
+            &.top .content {
+                clip-path: polygon(
+                    0 var(--bevel-px), var(--bevel-px) 0,
+                    calc(100% - var(--bevel-px)) 0, 100% var(--bevel-px),
+                    100% 100%,
+                    0 100%);
+            }
+            &.bottom .content {
+                clip-path: polygon(
+                    0 0,
+                    100% 0,
+                    100% calc(100% - var(--bevel-px)), calc(100% - var(--bevel-px)) 100%,
+                    var(--bevel-px) 100%, 0 calc(100% - var(--bevel-px)));
+            }
+            &.all.small .content {
+                --bevel-px: calc(var(--bevel-size-small) * 1px);
+            }
+        }
 
         & input[type="number"] {
             font-size: 45px;
@@ -591,6 +506,88 @@ main {
                 flex: 1;
 
                 & label { margin: var(--pad) 0 calc(var(--pad) * 2); }
+            }
+        }
+    }
+}
+
+#nojs-alert {
+    position: fixed;
+    top: -30px;
+    left: 0;
+
+    & > input {
+        pointer-events: none;
+
+        &:checked ~ .content,
+        &:checked ~ .screen {
+            display: none;
+        }
+    }
+
+    & > .screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #0003;
+    }
+
+    & > .content {
+        --width: 500px;
+
+        display: flex;
+        align-items: center;
+
+        position: fixed;
+        top: 10vh;
+        left: calc(50vw - var(--width) / 2);
+        width: var(--width);
+
+        background: #eee;
+        padding: 20px 30px 50px;
+        border-radius: 20px;
+        filter: drop-shadow(1px 1px 5px #0008);
+
+        font-family: var(--font-body);
+
+        user-select: none;
+
+        & > .icon {
+            font-size: 40px;
+            margin-right: 20px;
+        }
+
+        & > div {
+            & > h2 {
+                font-family: var(--font-head);
+                margin: 5px;
+            }
+
+            & > p { margin: 5px; }
+        }
+
+        & > label {
+            display: block;
+            pointer-events: all;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            border: 1px solid #0008;
+            border-bottom-width: 2px;
+            padding: 3px 6px;
+            border-radius: 5px;
+            background: #fff;
+
+            &:hover {
+                background: #ddd;
+
+                &:active {
+                    bottom: 19px;
+                    border-bottom-width: 1px;
+                }
             }
         }
     }
