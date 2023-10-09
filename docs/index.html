@@ -31,12 +31,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
+
     <main>
         <div id="sheet">
             <div class="header">
                 <div>
                     <label for="name">Name:</label>
-                    <input name="name" type="text" autocomplete="off" spellcheck="false" maxlength="46"/>
+                    <input id="name" type="text" maxlength="46" autocomplete="off" spellcheck="false"/>
                 </div>
                 <img class="no-select" draggable="false" title="DURF Logo" src="./img/durf-title.png"/>
             </div>
@@ -46,14 +47,14 @@
                         <div class="border"></div>
                         <div class="content">
                             <div class="labels">
-                                <label for="str">STR</label>
-                                <label for="dex">DEX</label>
-                                <label for="wil">WIL</label>
+                                <label for="input-str">STR</label>
+                                <label for="input-dex">DEX</label>
+                                <label for="input-wil">WIL</label>
                             </div>
                             <div class="fields">
-                                <div><input name="str" type="number" autocomplete="off"/></div>
-                                <div><input name="dex" type="number" autocomplete="off"/></div>
-                                <div><input name="wil" type="number" autocomplete="off"/></div>
+                                <div><input id="input-str" type="number" autocomplete="off"/></div>
+                                <div><input id="input-dex" type="number" autocomplete="off"/></div>
+                                <div><input id="input-wil" type="number" autocomplete="off"/></div>
                             </div>
                         </div>
                     </div>
@@ -61,12 +62,12 @@
                         <div class="border"></div>
                         <div class="content">
                             <div class="labels">
-                                <label for="hd">HD</label>
-                                <label for="wounds">WOUNDS</label>
+                                <label for="input-hd">HD</label>
+                                <label for="input-wounds">WOUNDS</label>
                             </div>
                             <div class="fields">
-                                <div><input name="hd" type="number" autocomplete="off"/></div>
-                                <div><input name="wounds" type="number" autocomplete="off"/></div>
+                                <div><input id="input-hd" type="number" autocomplete="off"/></div>
+                                <div><input id="input-wounds" type="number" autocomplete="off"/></div>
                             </div>
                         </div>
                     </div>
@@ -75,12 +76,12 @@
                         <div class="content">
                             <div class="fields">
                                 <div>
-                                    <label for="armor-current">Current</label>
-                                    <input name="armor-current" type="number" autocomplete="off"/>
+                                    <label for="input-armor-current">Current</label>
+                                    <input id="input-armor-current" type="number" autocomplete="off"/>
                                 </div>
                                 <div>
-                                    <label for="armor-max">Max</label>
-                                    <input name="armor-max" type="number" autocomplete="off"/>
+                                    <label for="input-armor-max">Max</label>
+                                    <input id="input-armor-max" type="number" autocomplete="off"/>
                                 </div>
                             </div>
                             <span>ARMOR</span>
@@ -89,8 +90,8 @@
                     <div class="xp beveled all">
                         <div class="border"></div>
                         <div class="content">
-                            <label for="xp">XP</label>
-                            <input name="xp" type="number" autocomplete="off"/>
+                            <label for="input-xp">XP</label>
+                            <input id="input-xp" type="number" autocomplete="off"/>
                         </div>
                     </div>
                     <div class="xp-info no-select">
@@ -101,89 +102,89 @@
                     <div class="border"></div>
                     <div class="content">
                         <div>
-                            <label for="slot-1">1</label>
-                            <textarea name="slot-1" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-1">1</label>
+                            <textarea id="input-slot-1" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-2">2</label>
-                            <textarea name="slot-2" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-2">2</label>
+                            <textarea id="input-slot-2" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-3">3</label>
-                            <textarea name="slot-3" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-3">3</label>
+                            <textarea id="input-slot-3" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-4">4</label>
-                            <textarea name="slot-4" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-4">4</label>
+                            <textarea id="input-slot-4" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-5">5</label>
-                            <textarea name="slot-5" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-5">5</label>
+                            <textarea id="input-slot-5" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-6">6</label>
-                            <textarea name="slot-6" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-6">6</label>
+                            <textarea id="input-slot-6" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-7">7</label>
-                            <textarea name="slot-7" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-7">7</label>
+                            <textarea id="input-slot-7" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-8">8</label>
-                            <textarea name="slot-8" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-8">8</label>
+                            <textarea id="input-slot-8" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-9">9</label>
-                            <textarea name="slot-9" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-9">9</label>
+                            <textarea id="input-slot-9" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-10">10</label>
-                            <textarea name="slot-10" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-10">10</label>
+                            <textarea id="input-slot-10" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-11">11</label>
-                            <textarea name="slot-11" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-11">11</label>
+                            <textarea id="input-slot-11" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-12">12</label>
-                            <textarea name="slot-12" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-12">12</label>
+                            <textarea id="input-slot-12" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-13">13</label>
-                            <textarea name="slot-13" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-13">13</label>
+                            <textarea id="input-slot-13" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-14">14</label>
-                            <textarea name="slot-14" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-14">14</label>
+                            <textarea id="input-slot-14" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-15">15</label>
-                            <textarea name="slot-15" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-15">15</label>
+                            <textarea id="input-slot-15" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-16">16</label>
-                            <textarea name="slot-16" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-16">16</label>
+                            <textarea id="input-slot-16" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-17">17</label>
-                            <textarea name="slot-17" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-17">17</label>
+                            <textarea id="input-slot-17" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div>
-                            <label for="slot-18">18</label>
-                            <textarea name="slot-18" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-slot-18">18</label>
+                            <textarea id="input-slot-18" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                         <div class="gold">
                             <div>
-                                <label for="slots">SLOTS
+                                <label for="input-slots">SLOTS
                                     <span>10 + STR</span>
                                 </label>
-                                <label for="gold">GOLD</label>
+                                <label for="input-gold">GOLD</label>
                             </div>
                             <div class="beveled all small">
                                 <div class="border"></div>
                                 <div class="content">
-                                    <div><input name="slots" type="number" autocomplete="off"/></div>
-                                    <div><input name="gold" type="number" autocomplete="off"/></div>
+                                    <div><input id="input-slots" type="number" autocomplete="off"/></div>
+                                    <div><input id="input-gold" type="number" autocomplete="off"/></div>
                                 </div>
                             </div>
                         </div>
@@ -193,21 +194,37 @@
                     <div class="notes beveled top">
                         <div class="border"></div>
                         <div class="content">
-                            <label for="notes">PORTRAIT / NOTES</label>
-                            <textarea name="notes" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-notes">PORTRAIT / NOTES</label>
+                            <textarea id="input-notes" autocomplete="off" spellcheck="false"></textarea>
                         </div>
                     </div>
                     <div class="spells beveled bottom">
                         <div class="border"></div>
                         <div class="content">
-                            <textarea name="spells" autocomplete="off" spellcheck="false"></textarea>
-                            <label for="spells">SPELLS</label>
+                            <textarea id="input-spells" autocomplete="off" spellcheck="false"></textarea>
+                            <label for="input-spells">SPELLS</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <div id="nojs-alert">
+        <script type="text/javascript">
+            document.querySelector('#nojs-alert').remove();
+        </script>
+        <input type="checkbox" id="nojs-alert-close" autocomplete="off">
+        <div class="screen"></div>
+        <div class="content">
+            <div class="icon">📜</div>
+            <div>
+                <h2>Scripts Disabled</h2>
+                <p>JavaScript has been disabled or blocked on this page. Most of the features will not work, and data you input will not be saved.</p>
+            </div>
+            <label for="nojs-alert-close">I Understand</label>
+        </div>
+    </div>
 
     <script type="text/javascript" src="./script/index.js"></script>
 </body>

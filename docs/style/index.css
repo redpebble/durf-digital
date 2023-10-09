@@ -93,6 +93,87 @@ main {
     user-select: none;
 }
 
+#nojs-alert {
+
+    & > input {
+        position: absolute;
+        visibility: hidden;
+        pointer-events: none;
+
+        &:checked ~ .content,
+        &:checked ~ .screen {
+            display: none;
+        }
+    }
+
+    & > .screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #0003;
+    }
+
+    & > .content {
+        --width: 500px;
+
+        display: flex;
+        align-items: center;
+
+        position: fixed;
+        top: 10vh;
+        left: calc(50vw - var(--width) / 2);
+        width: var(--width);
+
+        background: #eee;
+        padding: 20px 30px 50px;
+        border-radius: 20px;
+        filter: drop-shadow(1px 1px 5px #0008);
+
+        font-family: var(--font-body);
+
+        user-select: none;
+
+        & > .icon {
+            font-size: 40px;
+            margin-right: 20px;
+        }
+
+        & > div {
+            & > h2 {
+                font-family: var(--font-head);
+                margin: 5px;
+            }
+
+            & > p { margin: 5px; }
+        }
+
+        & > label {
+            display: block;
+            pointer-events: all;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            border: 1px solid #0008;
+            border-bottom-width: 2px;
+            padding: 3px 6px;
+            border-radius: 5px;
+            background: #fff;
+
+            &:hover {
+                background: #ddd;
+
+                &:active {
+                    bottom: 19px;
+                    border-bottom-width: 1px;
+                }
+            }
+        }
+    }
+}
+
 #sheet {
     --width: 1032px;
     --height: 727px;
@@ -125,6 +206,8 @@ main {
         scrollbar-width: thin;
 
         appearance: textfield;
+
+        user-select: unset;
 
         &::-webkit-scrollbar { width: 8px; background: transparent; }
         &::-webkit-scrollbar-thumb { background: #0003; }
