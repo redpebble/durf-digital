@@ -52,9 +52,9 @@
                                 <label for="input-wil">WIL</label>
                             </div>
                             <div class="fields">
-                                <div><input id="input-str" type="number" autocomplete="off"/></div>
-                                <div><input id="input-dex" type="number" autocomplete="off"/></div>
-                                <div><input id="input-wil" type="number" autocomplete="off"/></div>
+                                <div><input id="input-str" type="number" max="999" min="-999" autocomplete="off"/></div>
+                                <div><input id="input-dex" type="number" max="999" min="-999" autocomplete="off"/></div>
+                                <div><input id="input-wil" type="number" max="999" min="-999" autocomplete="off"/></div>
                             </div>
                         </div>
                     </div>
@@ -66,8 +66,8 @@
                                 <label for="input-wounds">WOUNDS</label>
                             </div>
                             <div class="fields">
-                                <div><input id="input-hd" type="number" autocomplete="off"/></div>
-                                <div><input id="input-wounds" type="number" autocomplete="off"/></div>
+                                <div><input id="input-hd" type="number" max="999" min="-999" autocomplete="off"/></div>
+                                <div><input id="input-wounds" type="number" max="999" min="-999" autocomplete="off"/></div>
                             </div>
                         </div>
                     </div>
@@ -77,11 +77,11 @@
                             <div class="fields">
                                 <div>
                                     <label for="input-armor-current">Current</label>
-                                    <input id="input-armor-current" type="number" autocomplete="off"/>
+                                    <input id="input-armor-current" type="number" max="999" min="-999" autocomplete="off"/>
                                 </div>
                                 <div>
                                     <label for="input-armor-max">Max</label>
-                                    <input id="input-armor-max" type="number" autocomplete="off"/>
+                                    <input id="input-armor-max" type="number" max="999" min="-999" autocomplete="off"/>
                                 </div>
                             </div>
                             <span>ARMOR</span>
@@ -91,7 +91,7 @@
                         <div class="border"></div>
                         <div class="content">
                             <label for="input-xp">XP</label>
-                            <input id="input-xp" type="number" autocomplete="off"/>
+                            <input id="input-xp" type="number" max="999999" min="-999999" autocomplete="off"/>
                         </div>
                     </div>
                     <div class="xp-info no-select">
@@ -183,8 +183,8 @@
                             <div class="beveled all small">
                                 <div class="border"></div>
                                 <div class="content">
-                                    <div><input id="input-slots" type="number" autocomplete="off"/></div>
-                                    <div><input id="input-gold" type="number" autocomplete="off"/></div>
+                                    <div><input id="input-slots" type="number" max="999" min="-999" autocomplete="off"/></div>
+                                    <div><input id="input-gold" type="number" min="0" autocomplete="off"/></div>
                                 </div>
                             </div>
                         </div>
