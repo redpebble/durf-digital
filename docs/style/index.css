@@ -747,6 +747,74 @@ main {
                     }
                 }
             }
+
+            & > .inventory {
+                --gold-height: 60px;
+                --inv-padding-top: calc(var(--gold-height) + var(--inner-padding));
+
+                margin-top: var(--border-padding);
+                height: 1000px;
+                padding-top: var(--inv-padding-top);
+
+                & > .content {
+                    display: grid;
+                    grid-template-rows: repeat(18, 1fr);
+                    grid-template-columns: 1fr;
+                    grid-auto-flow: column;
+                    padding-top: var(--inv-padding-top);
+
+                    & > div {
+                        border: none;
+                        border-top: var(--dotted-border);
+
+                        &:first-child { border-top: none; }
+                    }
+
+                    & > .gold {
+                        grid-row: unset;
+                        padding: 0;
+                        flex-direction: column;
+                        position: absolute;
+                        left: calc((100% - 200px) / 2);
+                        border-top: none;
+                        width: 200px;
+                        height: 60px;
+
+                        & > div:first-child {
+                            flex-direction: row;
+                            position: absolute;
+
+                            & > label {
+                                position: absolute;
+                                top: 17px;
+
+                                &:first-child { left: -75px; }
+                                &:last-child { left: 207px; }
+
+                                & > span { font-size: 11px; }
+                            }
+                        }
+    
+                        & > div:last-child {
+                            & > .content {
+                                flex-direction: row;
+
+                                & > div {
+                                    &:first-child {
+                                        border-bottom: none;
+                                        border-right: var(--dotted-border);
+                                    }
+    
+                                    & > input {
+                                        width: calc((100% - 2px) / 2);
+                                        margin-top: -8px;
+                                    }
+                                }
+                            }
+                        }
+                    }    
+                }
+            }
         }
     }
 }
