@@ -41,7 +41,9 @@ main {
 #sheet {
     --border-padding: 42px;
     --inner-padding: 13px;
-    --logo-height: calc(var(--sheet-height) * 0.065);
+    --logo-height: 47px;
+    --logo-ratio: 2.718;
+    --logo-width: calc(var(--logo-height) * var(--logo-ratio));
     --dotted-border: 2px dotted #666;
 
     display: flex;
@@ -103,7 +105,7 @@ main {
             position: relative;
             display: flex;
             align-items: end;
-            height: var(--logo-height);
+            height: 47px;
             border-bottom: var(--dotted-border);
             padding-bottom: calc(var(--inner-padding) * 0.5);
     
@@ -115,12 +117,18 @@ main {
     
             & > input {
                 position: absolute;
-                top: -17px;
+                bottom: -10px;
                 left: 73px;
                 height: 72px;
                 width: calc(100% - 73px);
                 font-size: 45px;
                 clip-path: polygon(0 15%, 0 85%, 100% 85%, 100% 15%);
+
+                &::placeholder {
+                    font-family: var(--font-head);
+                    color: var(--color-light-gray);
+                    opacity: 0;
+                }
             }
         }
 
@@ -619,7 +627,7 @@ main {
 @media (max-width: 1032px) {
 
     :root {
-        --mobile-height: 2000px;
+        
     }
 
     body {
@@ -631,12 +639,28 @@ main {
     }
 
     #sheet {
-        height: var(--mobile-height);
+        --logo-height: 80px;
+
         box-shadow: none;
 
         & > .header {
+            position: relative;
+            padding-top: calc(var(--logo-height) + var(--border-padding));
+
+            & > div {
+                & > label { display: none; }
+                & > input {
+                    left: 0;
+                    width: 100%;
+                    
+                    &::placeholder { opacity: 1; }
+                }
+            }
+
             & > img {
-                display: none;
+                position: absolute;
+                top: 0;
+                left: calc((100% - var(--logo-width)) / 2);
             }
         }
 
@@ -659,6 +683,10 @@ main {
                         }
     
                         & > .fields > div {
+                            & > input {
+                                width: calc((100% - 4px) / 3);
+                            }
+
                             &:nth-child(2),
                             &:last-child {
                                 border-top: none;
@@ -697,13 +725,22 @@ main {
                             calc(100% - var(--bevel-px)) 0, 100% var(--bevel-px),
                             100% calc(100% - var(--bevel-px)), calc(100% - var(--bevel-px)) 100%,
                             0 100%);
+
+                            & > .fields > div > input {
+                                margin-top: 22px;
+                            }
                     }
                 }
                 
                 & > .xp {
                     flex-direction: row;
-                    margin-top: var(--inner-padding);
-                    height: 70px;
+                    width: 50%;
+                    margin: var(--inner-padding) auto;
+                    height: 72px;
+
+                    & > div > .content > input {
+                        margin-top: -2px;
+                    }
 
                     & > span {
                         display: none;
