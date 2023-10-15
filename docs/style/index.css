@@ -626,10 +626,6 @@ main {
 
 @media (max-width: 1032px) {
 
-    :root {
-        
-    }
-
     body {
         overflow-x: hidden;
     }
@@ -812,8 +808,13 @@ main {
                                 }
                             }
                         }
-                    }    
+                    }
                 }
+            }
+
+            & > .notes-and-spells {
+                margin: var(--border-padding) 0;
+                height: 700px;
             }
         }
     }
