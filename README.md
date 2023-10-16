@@ -9,3 +9,4 @@ A digital character sheet for DURF (https://emielboven.itch.io/durf)
 - stat modifiers
 - item library
 - containers
+- offline service worker?
