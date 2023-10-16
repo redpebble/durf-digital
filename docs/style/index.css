@@ -639,6 +639,8 @@ main {
 
         box-shadow: none;
 
+        & textarea { font-size: 20px !important; }
+
         & > .header {
             position: relative;
             padding-top: calc(var(--logo-height) + var(--border-padding));
@@ -648,6 +650,7 @@ main {
                 & > input {
                     left: 0;
                     width: 100%;
+                    text-align: center;
                     
                     &::placeholder { opacity: 1; }
                 }
@@ -749,7 +752,7 @@ main {
                 --inv-padding-top: calc(var(--gold-height) + var(--inner-padding));
 
                 margin-top: var(--border-padding);
-                height: 1000px;
+                height: 1080px;
                 padding-top: var(--inv-padding-top);
 
                 & > .content {
@@ -815,6 +818,19 @@ main {
             & > .notes-and-spells {
                 margin: var(--border-padding) 0;
                 height: 700px;
+
+                & > .spells > .content {
+                    flex-direction: column-reverse;
+
+                    & > label { margin: calc(var(--pad) * 2) 0 var(--pad); }
+
+                    & > textarea {
+                        flex: 1;
+    
+                        width: calc(100% - var(--pad) * 4);
+                        padding: calc(var(--pad) * 2);
+                    }
+                }
             }
         }
     }
