@@ -1,36 +1,11 @@
-class DURFItem {
-    name;
-    description;
+import { Database, Store } from './module/db.mjs';
+import * as DURF from './module/durf.mjs';
 
-    constructor(name, description) {
-        this.name = name;
-        this.description = description;
-    }
-
-    toString() {
-        return `${this.name}`;
-    }
-}
-
-class DURFInventory {
-    slots;
-    gold;
-    items;
-}
-
-class DURFCharacter {
-    name;
-    str; dex; wil;
-    hd; wounds;
-    armor; armorMax;
-    xp;
-    inventory;
-    notes; spells;
-}
+indexedDB.deleteDatabase('durf_db');
 
 const DB = new Database('durf_db', 1, [
-    new DBStore('characters', 'id', new DURFCharacter()),
-    new DBStore('items', 'id', new DURFItem()),
+    new Store('characters', 'id', new DURF.Character()),
+    new Store('items', 'id', new DURF.Item()),
 ]);
 
 DB.open({
@@ -39,17 +14,30 @@ DB.open({
     success: () => {
         console.info(`Database opened`);
 
-        const item = new DURFItem(
-            'Rucksack of Retaining',
-            'A mysterious travel pack containing a rift in the very essence of spacetime. Convenient for storing stuff! Has 5 magical storage slots.');
+        const rucksack = new DURF.Item({
+            name: 'Rucksack of Retaining',
+            description: 'A mysterious travel pack containing a rift in the very essence of spacetime. Convenient for storing stuff! Has 5 magical storage slots.'
+        });
 
-        DB.getStore('items')?.add(item, {
+        DB.getStore('items')?.add(rucksack, {
             success: (id) => {
                 console.log(id);
                 DB.getStore('items')?.get(id, {
-                    success: (item) => console.log(item.toString())
+                    success: (item) => {
+                        console.log(item.toString());
+                        DB.getStore('items')?.put(id, item, {
+                            success: (id) => {
+                                console.log(id);
+                            },
+                            error: (e) => {
+                                console.error('error', e);
+                            }
+                        });
+                    }
                 });
             }
         });
     }
 });
+
+window.DURF = DURF;

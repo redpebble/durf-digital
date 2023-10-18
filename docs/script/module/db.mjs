@@ -1,27 +1,29 @@
-class DBStore {
+export class Store {
     db;
+    name; keyPath; proto;
 
-    name;
-    key;
-    autoIncrement = true;
-
-    proto;
-
-    constructor(name, key, proto) {
+    constructor(name, keyPath, proto) {
         this.name = name;
-        this.key = key;
+        this.keyPath = keyPath;
         this.proto = proto;
     }
 
     init(db) {
         const store = db.createObjectStore(this.name, {
-            keyPath: this.key,
-            autoIncrement: this.autoIncrement,
+            keyPath: this.keyPath,
+            autoIncrement: true,
         });
 
         for (let prop of Object.keys(this.proto)) {
+            if (prop === this.keyPath) {
+                throw new Error('Store object cannot contain a property with the same name as the keyPath');
+            }
             store.createIndex(prop, prop);
         }
+    }
+
+    setDB(db) {
+        this.db = db;
     }
 
     add(item, callback) {
@@ -34,8 +36,9 @@ class DBStore {
         this.#transaction_readwrite((store) => store.get(id), callback);
     }
 
-    put(id, item, callback) {
-        this.#transaction_readwrite((store) => store.put(item, id), callback);
+    put(key, item, callback) {
+        item[this.keyPath] = key;
+        this.#transaction_readwrite((store) => store.put(item), callback);
     }
 
     #transaction_readwrite(action, callback) {
@@ -62,12 +65,9 @@ class DBStore {
     }
 }
 
-class Database {
+export class Database {
     db;
-
-    name;
-    version;
-
+    name; version;
     stores;
 
     constructor(name, version, stores) {
@@ -79,26 +79,21 @@ class Database {
     open(callback) {
         let req = window.indexedDB.open(this.name, this.version);
 
-        req.onerror = callback?.error;
-        req.onsuccess = () => {
-            this.db = req.result;
-            for (let store of this.stores) {
-                store.db = this.db;
-            }
-
-            callback?.success?.();
-        };
-        
+        req.onerror = callback?.error;        
         req.onblocked = callback?.blocked;
         req.onupgradeneeded = (e) => {
             // TODO // version upgrade?
             const db = e.target.result;
 
-            for (let store of this.stores) {
-                store.init(db);
-            }
+            this.stores.forEach(s => s.init(db));
 
             callback?.upgradeneeded?.();
+        };
+        req.onsuccess = () => {
+            this.db = req.result;
+            this.stores.forEach(s => s.setDB(this.db));
+
+            callback?.success?.();
         };
     }
 
