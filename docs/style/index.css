@@ -414,6 +414,7 @@ main {
                     border: var(--dotted-border);
                     border-right: none;
                     border-top: none;
+                    min-width: 0;
 
                     & > label {
                         display: flex;
