@@ -1,7 +1,10 @@
-const jsonKeysKey = '__JSON_KEYS__';
-const jsonKeys = new Set(localStorage.getItem(jsonKeysKey) ? JSON.parse(localStorage.getItem(jsonKeysKey)) : undefined);
+const KEY_JSONKEYS = '__JSON_KEYS__';
+const jsonKeys = (() => {
+    const jsonKeysStr = localStorage.getItem(KEY_JSONKEYS);
+    return new Set(jsonKeysStr ? JSON.parse(jsonKeysStr) : undefined);
+})();
 const updateJsonKeys = () => {
-    localStorage.setItem(jsonKeysKey, JSON.stringify([...jsonKeys]));
+    localStorage.setItem(KEY_JSONKEYS, JSON.stringify([...jsonKeys]));
 }
 
 let classMap = {};

@@ -4,7 +4,7 @@ import { download, qs, qsa } from './util.mjs';
 let listener = null;
 export const setUpdateListener = (l) => {
     if (typeof l !== 'function') {
-        console.error('provided listener is not a function:', l);
+        console.error('Provided listener is not a function:', l);
         return;
     }
     listener = l;
@@ -13,13 +13,13 @@ export const setUpdateListener = (l) => {
 let character = new DURF.Character();
 export const getCharacter = () => character;
 export const setCharacter = (c) => {
-    character = c || new DURF.Character();
+    character = new DURF.Character(c);
     update();
 };
 
 const fieldMap = {};
 
-const initNumberField = (inputSelector, fieldName) => {
+const initField = (inputSelector, fieldName) => {
     const input = qs(inputSelector);
     fieldMap[fieldName] = input;
     input.addEventListener('input', (e) => {
@@ -40,19 +40,19 @@ const initArrayField = (inputSelector, fieldName) => {
 }
 
 export const init = () => {
-    initNumberField('#input-name', 'name');
-    initNumberField('#input-str', 'str');
-    initNumberField('#input-dex', 'dex');
-    initNumberField('#input-wil', 'wil');
-    initNumberField('#input-hd', 'hd');
-    initNumberField('#input-wounds', 'wounds');
-    initNumberField('#input-armor-current', 'armor');
-    initNumberField('#input-armor-max', 'armorMax');
-    initNumberField('#input-xp', 'xp');
-    initNumberField('#input-num-slots', 'numSlots');
-    initNumberField('#input-gold', 'gold');
-    initNumberField('#input-notes', 'notes');
-    initNumberField('#input-spells', 'spells');
+    initField('#input-name', 'name');
+    initField('#input-str', 'str');
+    initField('#input-dex', 'dex');
+    initField('#input-wil', 'wil');
+    initField('#input-hd', 'hd');
+    initField('#input-wounds', 'wounds');
+    initField('#input-armor-current', 'armor');
+    initField('#input-armor-max', 'armorMax');
+    initField('#input-xp', 'xp');
+    initField('#input-num-slots', 'numSlots');
+    initField('#input-gold', 'gold');
+    initField('#input-notes', 'notes');
+    initField('#input-spells', 'spells');
 
     initArrayField('.input-slot', 'slots');
 }
@@ -77,11 +77,13 @@ const update = () => {
     }
 }
 
+// move to UI code and use getCharacter()
 export const exportCharacter = () => {
     const dataUri = `data:application/json,${encodeURIComponent(JSON.stringify(character))}`;
     download(character.name, 'durfpc', dataUri);
 }
 
+// move to UI code and use setCharacter()
 qs('#input-import').addEventListener('input', (e) => {
     let file = e.target.files?.item(0);
     if (file) {
