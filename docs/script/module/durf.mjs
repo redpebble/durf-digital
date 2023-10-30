@@ -7,7 +7,7 @@ export class Item {
     }
 
     toString() {
-        return `[item "${this.name}"]`;
+        return `[DURF.Item "${this.name}"]`;
     }
 }
 
@@ -32,6 +32,6 @@ export class Character {
     }
 
     toString() {
-        return `[character "${this.name}"]`;
+        return `[DURF.Character "${this.name}"]`;
     }
 }

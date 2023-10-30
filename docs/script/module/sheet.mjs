@@ -1,5 +1,5 @@
 import * as DURF from './durf.mjs';
-import { qs, qsa } from './util.mjs';
+import { download, qs, qsa } from './util.mjs';
 
 let listener = null;
 export const setUpdateListener = (l) => {
@@ -14,7 +14,6 @@ let character = new DURF.Character();
 export const getCharacter = () => character;
 export const setCharacter = (c) => {
     character = c || new DURF.Character();
-    console.log(character.toString());
     update();
 };
 
@@ -77,3 +76,25 @@ const update = () => {
         fieldMap['slots'][i].value = character.slots[i] || '';
     }
 }
+
+export const exportCharacter = () => {
+    const dataUri = `data:application/json,${encodeURIComponent(JSON.stringify(character))}`;
+    download(character.name, 'durfpc', dataUri);
+}
+
+qs('#input-import').addEventListener('input', (e) => {
+    let file = e.target.files?.item(0);
+    if (file) {
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                setCharacter(new DURF.Character(JSON.parse(e.target?.result)));
+            } catch(err) {
+                console.error('Something went wrong with config load', err);
+            }
+        }
+        reader.readAsText(file);
+    } else {
+        console.error('No file selected');
+    }
+});
