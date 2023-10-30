@@ -1,11 +1,31 @@
+export class RequestCallback {
+    onerror;
+    onsuccess;
+}
+
+export class OpenRequestCallback extends RequestCallback {
+    onblocked;
+    onupgradeneeded;
+}
+
+export class TransactionCallback extends RequestCallback {
+    transaction = {
+        onabort: undefined,
+        oncomplete: undefined,
+        onerror: undefined
+    };
+}
+
 export class Store {
     db;
-    name; keyPath; proto;
+    name;
+    keyPath;
+    objClass;
 
-    constructor(name, keyPath, proto) {
+    constructor(name, keyPath, objClass) {
         this.name = name;
         this.keyPath = keyPath;
-        this.proto = proto;
+        this.objClass = objClass;
     }
 
     init(db) {
@@ -14,7 +34,7 @@ export class Store {
             autoIncrement: true,
         });
 
-        for (let prop of Object.keys(this.proto)) {
+        for (let prop of Object.keys(new this.objClass())) {
             if (prop === this.keyPath) {
                 throw new Error('Store object cannot contain a property with the same name as the keyPath');
             }
@@ -30,10 +50,10 @@ export class Store {
         this.#transaction_readwrite((store) => store.add(item), callback);
     }
 
-    get(id, callback) {
+    get(key, callback) {
         const _success = callback?.success;
-        callback.success = (item) => { _success?.(Object.assign(Object.create(this.proto), item)); };
-        this.#transaction_readwrite((store) => store.get(id), callback);
+        callback.success = (item) => { _success?.(Object.assign(new this.objClass(), item)); };
+        this.#transaction_readwrite((store) => store.get(key), callback);
     }
 
     put(key, item, callback) {
@@ -43,7 +63,7 @@ export class Store {
 
     #transaction_readwrite(action, callback) {
         if (this.db === undefined) {
-            callback?.error?.('DBStore not initialized');
+            callback?.error?.();
             return;
         }
 
@@ -102,6 +122,7 @@ export class Database {
             if (store.name === storeName)
                 return store;
         }
+        return null;
     }
 
     toString() {

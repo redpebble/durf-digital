@@ -1,36 +1,37 @@
 export class Item {
-    name;
-    description;
+    name = '';
+    description = '';
 
     constructor(obj) {
         Object.assign(this, obj);
     }
 
     toString() {
-        return `${this.name}`;
-    }
-}
-
-export class Inventory {
-    slots;
-    gold;
-    items;
-
-    constructor(obj) {
-        Object.assign(this, obj);
+        return `[item "${this.name}"]`;
     }
 }
 
 export class Character {
-    name;
-    str; dex; wil;
-    hd; wounds;
-    armor; armorMax;
-    xp;
-    inventory;
-    notes; spells;
+    name = '';
+    str = '';
+    dex = '';
+    wil = '';
+    hd = '';
+    wounds = '';
+    armor = '';
+    armorMax = '';
+    xp = '';
+    numSlots = '';
+    gold = '';
+    slots = [];
+    notes = '';
+    spells = '';
 
     constructor(obj) {
         Object.assign(this, obj);
+    }
+
+    toString() {
+        return `[character "${this.name}"]`;
     }
 }

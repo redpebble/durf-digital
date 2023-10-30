@@ -54,6 +54,7 @@ main {
     padding: var(--border-padding);
     background-color: #fff;
     box-shadow: 1px 1px 10px #0004;
+    border-radius: 7px;
 
     user-select: none;
 
@@ -68,18 +69,10 @@ main {
         scrollbar-color: #0003 transparent;
         scrollbar-width: thin;
 
-        appearance: textfield;
-
         user-select: unset;
 
         &::-webkit-scrollbar { width: 8px; background: transparent; }
         &::-webkit-scrollbar-thumb { background: #0003; }
-
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-            appearance: none;
-            margin: 0;
-        }
 
         &:focus {
             outline: none;
@@ -211,7 +204,7 @@ main {
             }
         }
 
-        & input[type="number"] {
+        & input {
             font-size: 45px;
             height: 72px;
             line-height: 0;
