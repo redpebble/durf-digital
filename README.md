@@ -2,8 +2,8 @@
 A digital character sheet for DURF (https://emielboven.itch.io/durf)
 
 ### to-do
-- improve mobile nav
 - multiple characters
+- image startup loader
 
 ### ideas
 - spell list
