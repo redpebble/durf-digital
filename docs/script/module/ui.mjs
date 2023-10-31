@@ -4,8 +4,9 @@ import * as SHEET from './sheet.mjs';
 
 const exportCharacter = () => {
     const c = SHEET.getCharacter();
+    const name = (!c.name || c.name === '') ? 'Unnamed' : c.name;
     const dataUri = `data:application/json,${encodeURIComponent(JSON.stringify(c))}`;
-    download(c.name, 'durfpc', dataUri);
+    download(name, ['durf','json'], dataUri);
 }
 
 const importCharacter = (file) => {

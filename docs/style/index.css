@@ -30,7 +30,7 @@ body {
     /* background-color: rgba(42, 42, 46, 1); */
     user-select: none;
 
-    &, & main, & div {
+    &, & main, & div, & label {
         box-sizing: border-box;
     }
 }
@@ -130,25 +130,29 @@ nav {
         & > #menu {
             & > button,
             & > label {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 pointer-events: all;
                 cursor: pointer;
                 position: relative;
-                width: 100px;
+                width: 180px;
+                height: 45px;
                 padding: 3px 0;
-                margin: 7px auto;
+                margin: 7px auto 7px;
                 border: 1px solid #0008;
                 border-bottom-width: 2px;
-                border-radius: 5px;
+                border-radius: 15px;
                 background: #fff;
                 font-family: var(--font-head);
-                text-align: center;
+                font-size: 20px;
+                letter-spacing: 1px;
     
                 &:hover { background-color: #ddd; }
                 &:active {
                     top: 1px;
                     border-bottom-width: 1px;
-                    margin-top: 8px;
                 }
             }
         }
@@ -779,6 +783,14 @@ input.hidden {
 
     body {
         overflow-x: hidden;
+    }
+
+    nav {
+        & > .content {
+            & > footer {
+                opacity: 1;
+            }
+        }
     }
 
     main {

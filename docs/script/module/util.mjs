@@ -3,7 +3,12 @@ export const qsa = (s) => document.querySelectorAll(s);
 
 export const download = (name, type, dataUri) => {
     name = sanitize(name);
-    type = sanitize(type);
+
+    if (type instanceof Array) {
+        type = type.map((val) => sanitize(val)).join('.');
+    } else {
+        type = sanitize(type);
+    }
     if (name === '') name = 'download';
     if (type === '') type = 'txt';
 
