@@ -1,15 +1,10 @@
-import * as Storage from './module/storage.mjs';
-import * as DB from './module/db.mjs';
 import * as DURF from './module/durf.mjs';
-import * as Sheet from './module/sheet.mjs';
+import * as LS from './module/storage.mjs';
+import * as DB from './module/db.mjs';
+import * as UI from './module/ui.mjs';
 
-Storage.setClassMap({'character': DURF.Character});
-
-Sheet.init();
-Sheet.setCharacter(Storage.getItem('character'));
-Sheet.setUpdateListener(() => {
-    Storage.setItem('character', Sheet.getCharacter());
-});
+LS.setClassMap({'character': DURF.Character});
+UI.init();
 
 // indexedDB.deleteDatabase('durf_db');
 

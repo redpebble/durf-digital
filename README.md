@@ -2,7 +2,7 @@
 A digital character sheet for DURF (https://emielboven.itch.io/durf)
 
 ### to-do
-- import/export/clear ui
+- improve mobile nav
 - multiple characters
 
 ### ideas

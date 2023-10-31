@@ -6,32 +6,39 @@
 
 	<title>DURF Digital Character Sheet</title>
 
-<!--
-    <link rel="apple-touch-icon" sizes="57x57" href="ico/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="ico/apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="ico/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="ico/apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="ico/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="ico/apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="ico/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="ico/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="ico/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192" href="ico/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="ico/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="ico/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="ico/favicon-16x16.png">
-	<link rel="manifest" href="ico/manifest.json">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="ico/ms-icon-144x144.png">
--->
-
     <link rel="stylesheet" type="text/css" href="./style/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="./style/index.css"/>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-    <input id="input-import" type="file" accept=".durfpc,application/json">
+    <nav class="open">
+        <input class="hidden" id="nav-toggle" type="checkbox" autocomplete="off">
+        <label class="screen" for="nav-toggle"></label>
+
+        <div class="content">
+            <label for="nav-toggle">
+                <div><div>
+                    <img draggable="false" title="arrow" src="./img/arrow.png"/>
+                </div></div>
+            </label>
+            <img draggable="false" title="DURF Digital Logo" src="./img/durf-digital.png"/>
+
+            <div id="menu">
+                <input class="hidden" id="input-import" type="file" accept=".durfpc,application/json">
+
+                <button id="input-export">Export</button>
+                <label for="input-import">Import</label>
+                <button id="input-clear">Clear</button>
+            </div>
+
+            <footer>
+                <p>Built by <a href="https://www.jasperandrew.me/" target="_blank">Jasper Andrew</a> (<a href="https://github.com/redpebble/durf-digital" target="_blank">source</a>)</p>
+                <p><a href="https://emielboven.itch.io/durf" target="_blank">DURF</a> belongs to <a href="https://www.cultofthelizardking.com/" target="_blank">Emiel Boven</a></p>
+            </footer>
+        </div>
+    </nav>
+
     <main>
         <div id="sheet">
             <div class="header">
@@ -39,7 +46,7 @@
                     <label for="input-name">Name:</label>
                     <input id="input-name" type="text" placeholder="Name" maxlength="46" autocomplete="off" spellcheck="false"/>
                 </div>
-                <img class="no-select" draggable="false" title="DURF Logo" src="./img/durf-title.png"/>
+                <img draggable="false" title="DURF Logo" src="./img/durf-title.png"/>
             </div>
             <div class="body">
                 <div class="stats">
@@ -216,7 +223,7 @@
         <script type="text/javascript">
             document.querySelector('#nojs-alert').remove();
         </script>
-        <input type="checkbox" id="nojs-alert-close" autocomplete="off">
+        <input class="hidden" id="nojs-alert-close" type="checkbox" autocomplete="off">
         <div class="screen"></div>
         <div class="content">
             <div class="icon">📜</div>

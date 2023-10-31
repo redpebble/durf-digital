@@ -1,5 +1,5 @@
 import * as DURF from './durf.mjs';
-import { download, qs, qsa } from './util.mjs';
+import { qs, qsa } from './util.mjs';
 
 let listener = null;
 export const setUpdateListener = (l) => {
@@ -18,6 +18,26 @@ export const setCharacter = (c) => {
 };
 
 const fieldMap = {};
+
+const update = () => {
+    fieldMap['name'].value = character.name || '';
+    fieldMap['str'].value = character.str || '';
+    fieldMap['dex'].value = character.dex || '';
+    fieldMap['wil'].value = character.wil || '';
+    fieldMap['hd'].value = character.hd || '';
+    fieldMap['wounds'].value = character.wounds || '';
+    fieldMap['armor'].value = character.armor || '';
+    fieldMap['armorMax'].value = character.armorMax || '';
+    fieldMap['xp'].value = character.xp || '';
+    fieldMap['numSlots'].value = character.numSlots || '';
+    fieldMap['gold'].value = character.gold || '';
+    fieldMap['notes'].value = character.notes || '';
+    fieldMap['spells'].value = character.spells || '';
+
+    for (let i = 0; i < fieldMap['slots'].length; i++) {
+        fieldMap['slots'][i].value = character.slots[i] || '';
+    }
+}
 
 const initField = (inputSelector, fieldName) => {
     const input = qs(inputSelector);
@@ -56,47 +76,3 @@ export const init = () => {
 
     initArrayField('.input-slot', 'slots');
 }
-
-const update = () => {
-    fieldMap['name'].value = character.name || '';
-    fieldMap['str'].value = character.str || '';
-    fieldMap['dex'].value = character.dex || '';
-    fieldMap['wil'].value = character.wil || '';
-    fieldMap['hd'].value = character.hd || '';
-    fieldMap['wounds'].value = character.wounds || '';
-    fieldMap['armor'].value = character.armor || '';
-    fieldMap['armorMax'].value = character.armorMax || '';
-    fieldMap['xp'].value = character.xp || '';
-    fieldMap['numSlots'].value = character.numSlots || '';
-    fieldMap['gold'].value = character.gold || '';
-    fieldMap['notes'].value = character.notes || '';
-    fieldMap['spells'].value = character.spells || '';
-
-    for (let i = 0; i < fieldMap['slots'].length; i++) {
-        fieldMap['slots'][i].value = character.slots[i] || '';
-    }
-}
-
-// move to UI code and use getCharacter()
-export const exportCharacter = () => {
-    const dataUri = `data:application/json,${encodeURIComponent(JSON.stringify(character))}`;
-    download(character.name, 'durfpc', dataUri);
-}
-
-// move to UI code and use setCharacter()
-qs('#input-import').addEventListener('input', (e) => {
-    let file = e.target.files?.item(0);
-    if (file) {
-        let reader = new FileReader();
-        reader.onload = (e) => {
-            try {
-                setCharacter(new DURF.Character(JSON.parse(e.target?.result)));
-            } catch(err) {
-                console.error('Something went wrong with config load', err);
-            }
-        }
-        reader.readAsText(file);
-    } else {
-        console.error('No file selected');
-    }
-});
